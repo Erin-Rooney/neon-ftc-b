@@ -11,13 +11,13 @@ all_fall1 = read.csv("processed/Dat-all_fall1.csv")
 
 all_fall1 = all_fall1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_fall1 = read.csv("processed/Dat-HEAL_fall1.csv")
 
 heal_fall1 = heal_fall1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 fall1 = 
@@ -30,13 +30,13 @@ all_fall2 = read.csv("processed/Dat-all_fall2.csv")
 
 all_fall2 = all_fall2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_fall2 = read.csv("processed/Dat-HEAL_fall2.csv")
 
 heal_fall2 = heal_fall2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 fall2 = 
@@ -48,13 +48,13 @@ all_winter1 = read.csv("processed/Dat-all_winter1.csv")
 
 all_winter1 = all_winter1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_winter1 = read.csv("processed/Dat-HEAL_winter1.csv")
 
 heal_winter1 = heal_winter1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 winter1 = 
@@ -86,13 +86,13 @@ all_spring1 = read.csv("processed/Dat-all_spring1.csv")
 
 all_spring1 = all_spring1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_spring1 = read.csv("processed/Dat-HEAL_spring1.csv")
 
 heal_spring1 = heal_spring1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 spring1 = 
@@ -105,13 +105,13 @@ all_spring2 = read.csv("processed/Dat-all_spring2.csv")
 
 all_spring2 = all_spring2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_spring2 = read.csv("processed/Dat-HEAL_spring2.csv")
 
 heal_spring2 = heal_spring2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 spring2 = 
@@ -123,13 +123,13 @@ all_summer1 = read.csv("processed/Dat-all_summer1.csv")
 
 all_summer1 = all_summer1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_summer1 = read.csv("processed/Dat-HEAL_summer1.csv")
 
 heal_summer1 = heal_summer1 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 summer1 = 
@@ -142,13 +142,13 @@ all_summer2 = read.csv("processed/Dat-all_summer2.csv")
 
 all_summer2 = all_summer2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 heal_summer2 = read.csv("processed/Dat-HEAL_summer2.csv")
 
 heal_summer2 = heal_summer2 %>% 
   # keep only necessary columns
-  select(siteID, startDateTime, endDateTime, soilTempMean)
+  select(siteID, startDateTime, endDateTime, horizontalPostion, verticalPosition, soilTempMean)
 
 #bind heal and all dat files
 summer2 = 
