@@ -4,3 +4,5 @@
 *.pper
 .Rproj.user/0A5359D9/sources/s-DE907D13/4DCABF6E
 .Rproj.user/0A5359D9/sources/s-48F3BD09/EFD3EADE
+.Rhistory
+*.Rdata
