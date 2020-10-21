@@ -5,6 +5,10 @@
 library(tidyverse)
 library(reshape2)
 
+
+
+str("processed/fall1.csv")
+
 # filter data and create CSV files----------------
 # fall----------------------
 all_fall1 = read.csv("processed/Dat-all_fall1.csv")
