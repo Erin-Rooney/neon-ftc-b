@@ -5,13 +5,17 @@
 #NEON
 library(neonUtilities)
 library(tidyverse)
+library(data.table)
+library(devtools)
+install_github("BajczA475/FTCQuant/FTCQuant")
+library(FTCQuant)
 
 #Soil temp data###########################################
 
 #lists files in working directory or by path
-file.list = list.files(pattern="*.RData")
+file.list = list.files(path = "processed", pattern="*.RData")
 file.names = substr(file.list, 1, nchar(file.list)-6)
-myfiles = lapply(file.list, readRDS)
+myfiles = lapply( file.list, readRDS) #had to set working directory in processed, bad.
 
 #Extract ST_30_minute from each, write new csv file to wd or path
 extract_dat = function(x,name){
@@ -31,9 +35,40 @@ extract_pos = function(x,name){
 }
 
 for (i in 1:length(myfiles)){
-  extract_dat(x=myfiles[[i]], 
+  extract_pos(x=myfiles[[i]], 
               name=file.names[[i]])
 }
+
+
+spring1=read.csv("spring1.csv") 
+spring2=read.csv("spring2.csv")
+fall1=read.csv("fall1.csv")
+fall2=read.csv("fall2.csv")
+summer1=read.csv("summer1.csv")
+summer2=read.csv("summer2.csv")
+winter1=read.csv("winter1.csv")
+winter2=read.csv("winter2.csv")
+
+spring1_pos=read.csv("spring1_pos.csv") 
+spring2_pos=read.csv("spring2_pos.csv") 
+summer1_pos=read.csv("summer1_pos.csv") 
+summer2_pos=read.csv("summer2_pos.csv") 
+fall1_pos=read.csv("fall1_pos.csv") 
+fall2_pos=read.csv("fall2_pos.csv") 
+winter1_pos=read.csv("winter1_pos.csv") 
+winter2_pos=read.csv("winter2_pos.csv") 
+  
+  #Freeze-thaw analysis#########################
+temp_dat=list(spring1 = spring1)
+pos_dat=list(spring1 = spring1_pos)
+
+
+#Combine season/year files into one list
+#temp_dat = list(spring1 = spring1)
+#pos_dat = list(pos_spring1 = pos_spring1) #name will probably change 
+
+#temp_dat = list(spring1 = spring1, spring2 = spring2, summer1 = summer1, summer2 = summer2, fall1 = fall1, fall2 = fall2, winter1 = winter1, winter2 = winter2)
+
 
 #FTC for 1.5 degree mag.vec, 4 hour duration (8 timesteps#######################
 
@@ -144,9 +179,9 @@ FTC_data = function(x, #list of dataframes (element ST_30_minute from NEON data 
 }
 
 #TRIAL: smaller dataset
-load(file="activelayer1.RData") 
-trial.temp.dat=list(activelayer1 = activelayer1$ST_30_minute)
-trial.pos.dat=list(activelayer1 = activelayer1$sensor_positions_00041)
+load(file="spring1.csv") 
+trial.temp.dat=list(spring1 = spring1$ST_30_minute)
+trial.pos.dat=list(spring1 = spring1$sensor_positions_00041)
 
 for (i in 1:length(trial.temp.dat)){
   cur.name=names(trial.temp.dat)[i]
