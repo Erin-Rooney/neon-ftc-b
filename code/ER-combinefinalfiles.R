@@ -1,6 +1,10 @@
 #Erin C Rooney
 #Nov 3 2020
 
+library(tidyverse)
+
+#bind files
+
 fall1 = read.csv("ALLSITETRIAL-fall1.csv")
 spring1 = read.csv("ALLSITETRIAL-spring1.csv")
 spring2 = read.csv("ALLSITETRIAL-spring2.csv")
@@ -13,3 +17,126 @@ allsite =
             spring2,
             summer1,
             summer2)
+
+#organize data
+
+ftc_fulldat = allsite %>% 
+  # mutate(site = factor (site, levels = c("HEAL", "BONA", "BARR", "TOOL")),
+  #        site = recode (site, "HEAL" = "healy",
+  #                       "BONA" = "caribou-poker",
+  #                       "BARR" = "barrow",
+  #                       "TOOL" = "toolik"))%>% 
+  filter(!is.na(Def1))        
+  #mutate(season = factor(season, levels = c("spring", "summer", "fall")))  
+
+# ggplot set up-----------------------------------
+library(soilpalettes)
+library(PNWColors)
+theme_er1 <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.position = "bottom",
+          #legend.key=element_blank(),
+          #legend.title = element_blank(),
+          legend.text = element_text(size = 12),
+          legend.key.size = unit(1.5, 'lines'),
+          panel.border = element_rect(color="black",size=2, fill = NA),
+          plot.title = element_text(hjust = 0.5, size = 14),
+          plot.subtitle = element_text(hjust = 0.5, size = 12, lineheight = 1.5),
+          axis.text = element_text(size = 12, color = "black"),
+          axis.text.x.bottom = element_text (vjust = 0.5, hjust=1, angle = 90),
+          axis.title = element_text(size = 12, face = "bold", color = "black"),
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour="white", fill="white"), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=12, face="bold"), #facet labels
+          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+    )
+}
+
+theme_er <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.position = "bottom",
+          #legend.key=element_blank(),
+          #legend.title = element_blank(),
+          legend.text = element_text(size = 12),
+          legend.key.size = unit(1.5, 'lines'),
+          panel.border = element_rect(color="black",size=2, fill = NA),
+          plot.title = element_text(hjust = 0.5, size = 14),
+          plot.subtitle = element_text(hjust = 0.5, size = 12, lineheight = 1.5),
+          axis.text = element_text(size = 12, color = "black"),
+          axis.title = element_text(size = 12, face = "bold", color = "black"),
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour="white", fill="white"), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=12, face="bold"), #facet labels
+          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+    )
+}
+
+#FT quant ggplots
+
+ftc_fulldatlong = ftc_fulldat %>% 
+  mutate(year = case_when(grepl("1", year)~"1", 
+                               grepl("2", year)~"2"),
+         season = case_when(grepl("summer", season)~"summer", 
+                            grepl("fall", season)~"fall",
+                            grepl("spring", season)~"spring"))
+
+ftc_fulldatlong %>% 
+  filter(Def1 > 0) %>% 
+  #filter(duration==24 & mag.vec==1.5 & depth_cm<100) %>%
+  ggplot(aes(y = depth_m, x = site, color = as.character(Def1)))+
+  #geom_jitter()+
+  geom_point(position = position_jitter(width = 0.2))+
+  #scale_y_reverse()+
+  # scale_size_continuous()+
+  #scale_color_continuous(low = "blue", high = "pink")+
+  #scale_color_gradientn(values = (PNWColors::pnw_palette("Bay")))+
+  labs(y = "depth, cm", x = "", color = "Freeze/Thaw Cycles", size = "Freeze/Thaw Cycles")+
+  #ggtitle("Freeze Thaw Cycle Frequency") +
+  theme_er1() +
+  facet_grid(year~season)
+
+ftc_fulldatlong %>% 
+  filter(Def1 > 0) %>% 
+  #filter(season %in% spring) %>%
+  ggplot(aes(y = depth_m, x = site, color = as.character(Def1)))+
+  geom_point(position = position_jitter(width = 0.2), size = 4.5)+
+  geom_point(data = ftc_fulldat %>% filter(Def1 == 0),
+             position = position_jitter(width = 0.2), size = 2, color = "black")+
+  #scale_y_reverse()+
+  #scale_color_manual(values = (PNWColors::pnw_palette("Starfish", 3)))+
+  labs(
+    title = "Freeze/Thaw Soil Profile \n NEON SITES \n ", 
+    y = "depth, cm",
+    x = "", 
+    color = "Freeze/Thaw Cycles")+
+  #legend.title = "Freeze/Thaw Cycles during Maximum Thaw",
+  #annotate("text", label = "perm", x = 1.5, y = 6, size = 4)+
+  #  annotate("rect", xmax = 0.5, xmin = 1.5, ymax = 5, ymin = 25, 
+  #           fill = "red", alpha = 0.5, color = "black", size = 4)+
+  theme_er()+
+  facet_grid(year~season)
+
+#heat map
+
+ftc_fulldatlong %>% 
+  #filter(depth_cm<100 ) %>%
+  ggplot(aes(y = site, x = depth_m, fill = Def1))+
+  geom_tile()+
+  #scale_y_reverse()+
+  coord_fixed(ratio=1/8)+
+  facet_grid(year~season)
+
+ftc_fulldatlong %>% 
+  #filter(depth_cm<100 ) %>% 
+  ggplot(aes(y = depth_m, x = site, fill = Def1))+
+  geom_tile()+
+  scale_y_reverse()+
+  coord_fixed(ratio=1/2)
+
+
