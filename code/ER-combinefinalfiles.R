@@ -88,6 +88,7 @@ ftc_fulldatlong = ftc_fulldat %>%
 
 ftc_fulldatlong %>% 
   filter(Def1 > 0) %>% 
+  filter(depth_m>-1.2 ) %>%
   #filter(duration==24 & mag.vec==1.5 & depth_cm<100) %>%
   ggplot(aes(y = depth_m, x = site, color = as.character(Def1)))+
   #geom_jitter()+
