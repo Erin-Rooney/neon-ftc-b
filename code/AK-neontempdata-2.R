@@ -39,7 +39,7 @@ for (i in 1:length(myfiles)){
               name=file.names[[i]])
 }
 
-
+#reset working directory, boo
 spring1=read.csv("spring1.csv") 
 spring2=read.csv("spring2.csv")
 fall1=read.csv("fall1.csv")
@@ -59,11 +59,11 @@ winter1_pos=read.csv("winter1_pos.csv")
 winter2_pos=read.csv("winter2_pos.csv") 
   
   #Freeze-thaw analysis#########################
-#temp_dat=list(spring1 = spring1, spring2 = spring2, summer1 = summer1, summer2 = summer2, fall1 = fall1, fall2 = fall2, winter1 = winter1, winter2 = winter2) # list all data files
-#pos_dat=list(spring1 = spring1_pos, spring2 = spring2_pos, summer1 = summer1_pos, summer2 = summer2_pos, fall1 = fall1_pos, fall2 = fall2_pos, winter1 = winter1_pos, winter2 = winter2_pos) # list all data files
+temp_dat=list(spring1 = spring1, spring2 = spring2, summer1 = summer1, summer2 = summer2, fall1 = fall1, fall2 = fall2, winter1 = winter1, winter2 = winter2) # list all data files
+pos_dat=list(spring1 = spring1_pos, spring2 = spring2_pos, summer1 = summer1_pos, summer2 = summer2_pos, fall1 = fall1_pos, fall2 = fall2_pos, winter1 = winter1_pos, winter2 = winter2_pos) # list all data files
 
-temp_dat=list(winter2 = winter2) # list all data files
-pos_dat=list(winter2 = winter2_pos) # list all data files
+#temp_dat=list(winter2 = winter2) # list all data files
+#pos_dat=list(winter2 = winter2_pos) # list all data files
 
 
 #Combine season/year files into one list
@@ -177,7 +177,7 @@ FTC_data = function(x, #list of dataframes (element ST_30_minute from NEON data 
   #Combine with FTC calculations
   FTC.all = Sensor_Pos_Distinct %>% right_join(FTC.full.final, by=c("column_names"))
   
-  write.csv(FTC.all, paste0("WINTER2TRIAL-",name, ".csv", sep="")) #Change append to name to define parameters used in FTC function: currently "trial"
+  write.csv(FTC.all, paste0("redoalldattrial-",name, ".csv", sep="")) #Change append to name to define parameters used in FTC function: currently "trial"
   
 }
 
