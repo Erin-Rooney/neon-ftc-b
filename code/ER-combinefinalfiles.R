@@ -86,8 +86,10 @@ ftc_fulldatlong = ftc_fulldat %>%
                             grepl("fall", season)~"fall",
                             grepl("spring", season)~"spring"))
 
+write.csv(ftc_fulldatlong, "ftcfull.csv", row.names = FALSE)
+
 ftc_fulldatlong %>% 
-  filter(Def1 > 0) %>% 
+  #filter(Def1 > 0) %>% 
   filter(depth_m>-1.2 ) %>%
   #filter(duration==24 & mag.vec==1.5 & depth_cm<100) %>%
   ggplot(aes(y = depth_m, x = site, color = as.character(Def1)))+
@@ -141,3 +143,62 @@ ftc_fulldatlong %>%
   coord_fixed(ratio=1/2)
 
 
+#better heat map
+library(lattice)
+
+ftc_fulldatlong = 
+  ftc_fulldatlong %>% 
+  select(site, depth_m, Def1, season, year)
+
+ftcalldat <- ftc_fulldatlong[order(ftc_fulldatlong$Def1),]
+
+row.names(ftcalldat) <- ftcalldat$site
+
+#ftcalldat <- ftcalldat[,2:6]
+
+ftcalldat_matrix <- data.matrix(ftcalldat)
+
+
+
+ftc_heatmap <- heatmap(ftcalldat_matrix, Rowv=depth_m, Colv=site, 
+                       col = cm.colors(256), scale="column", 
+                       margins=c(5,10))
+
+
+
+
+x <- seq(1,10,length.out=20)
+y <- seq(1,10,length.out=20)
+
+
+
+x <- ftc
+data <- expand.grid(X=ftc_fulldatlong$site, Y=ftc_fulldatlong$depth_m)
+data$Z<-runif(30880249,0,50)
+
+levelplot(Z~Def1, data=data, xlab="X", main="")
+
+
+# Attempt 3 heatmap
+
+m <- read.csv('ftcfull.csv', header = T, stringsAsFactors = F)
+
+head(m)
+str(m)
+table(m$season)
+table(m$year)
+table(m$depth_m)
+table(m$def1)
+
+
+m2 <- m %>% 
+  #convert data to long form
+  gather(key="Def1", value="Def1", -depth_m, -site) %>% 
+  #rename columns
+  setNames(c("depth_m", 'site', 'Def1', 'Def1')) %>% 
+  #convert depth to factor
+  mutate(depth_m=factor(depth_m)) %>% 
+  #convert site to factor
+  mutate(site=factor(site)) %>% 
+  #convert def1 to numeric
+  mutate(value=as.numeric(Def1))
