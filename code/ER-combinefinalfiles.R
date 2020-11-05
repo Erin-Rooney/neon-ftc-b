@@ -88,13 +88,17 @@ ftc_fulldatlong = ftc_fulldat %>%
 
 write.csv(ftc_fulldatlong, "ftcfull.csv", row.names = FALSE)
 
+library(forcats)
+
+
+
 ftc_fulldatlong %>% 
-  #filter(Def1 > 0) %>% 
+  filter(Def1 > 0) %>% 
   filter(depth_m>-1.2 ) %>%
   #filter(duration==24 & mag.vec==1.5 & depth_cm<100) %>%
-  ggplot(aes(y = depth_m, x = site, color = as.character(Def1)))+
+  ggplot(aes(y = depth_m, x = site, color = fct_reorder(as.character(Def1), Def1)))+
   #geom_jitter()+
-  geom_point(position = position_jitter(width = 0.2))+
+  geom_point(size = 4.5, alpha = 0.25, position = position_jitter(width = 0.16))+
   #scale_y_reverse()+
   # scale_size_continuous()+
   #scale_color_continuous(low = "blue", high = "pink")+
