@@ -80,13 +80,14 @@ theme_er <- function() {  # this for all the elements common across plots
 #FT quant ggplots
 
 ftc_fulldatlong = ftc_fulldat %>% 
-  mutate(year = case_when(grepl("1", year)~"1", 
-                               grepl("2", year)~"2"),
-         season = case_when(grepl("summer", season)~"summer", 
+  mutate(season = case_when(grepl("summer", season)~"summer", 
                             grepl("fall", season)~"fall",
                             grepl("spring", season)~"spring"))
 
 write.csv(ftc_fulldatlong, "ftcfull.csv", row.names = FALSE)
+
+
+read.csv("ftcfull.csv")
 
 library(forcats)
 
