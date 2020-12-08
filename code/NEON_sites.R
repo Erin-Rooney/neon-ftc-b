@@ -61,7 +61,25 @@ site_csv %>%
   theme(axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90))
 #facet_grid(.~probable_soil_order_via_NRCS)
 
+horizon_csv %>% 
+  #filter('incubation'== "PRE" & 'fraction'== "BULK") %>% 
+  ggplot() +
+  geom_point(aes(x = major_horizon_1, y = Age_14C, color = site, size = 3, alpha = 0.5)) +
+  geom_text(aes(x = major_horizon_1, y = Age_14C, label = site),hjust=0, vjust=0, angle=90) +
+  labs(y = "Age 14C", x = "Major Horizon")+
+  theme(axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90))+
+  facet_wrap(.~ fraction)
 
+#data processing--------------------------------------------
 
+LIG = horizon_csv %>%
+  group_by(LIG.ugg)
 
-
+LIG %>% 
+  #filter('incubation'== "PRE" & 'fraction'== "BULK") %>% 
+  ggplot() +
+  geom_point(aes(x = major_horizon_1, y = Age_14C, color = site, size = 3, alpha = 0.5)) +
+  geom_text(aes(x = major_horizon_1, y = Age_14C, label = site),hjust=0, vjust=0, angle=90) +
+  labs(y = "Age 14C", x = "Major Horizon")+
+  theme(axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90))+
+  facet_wrap(.~ fraction)
