@@ -1,0 +1,28 @@
+{
+    "id": "1BB37943",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1669139392918.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "id": "31b02828942b4f5a8585aa95c54bf825",
+        "name": "combo_ftc_temps",
+        "title": "combo_ftc_temps",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2947928133384,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1669139392918,
+    "read_only": false,
+    "read_only_alternatives": []
+}

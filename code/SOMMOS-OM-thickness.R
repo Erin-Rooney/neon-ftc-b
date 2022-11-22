@@ -74,3 +74,17 @@ om_finaldata =
 om_finaldata %>%  knitr::kable()
 
 write.csv(om_finaldata, "output/om_finaldata.csv", row.names = FALSE)
+
+###
+#september 6 2022
+
+om_sommos_allorganic = 
+  sommos %>% 
+  #distinguish organic horizons
+  dplyr::mutate(organic = case_when(grepl("O", horizon)~"organic")) %>% 
+  #filter out sites without any organic horizons
+  filter(organic == organic) 
+
+write.csv(om_sommos_allorganic, "output/om_sommos_allorganichorizons.csv", row.names = FALSE)
+
+

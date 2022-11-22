@@ -1,0 +1,512 @@
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(values = natparks.pals(name = "Yellowstone"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = natparks.pals(name = "Yellowstone"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_line(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_contour_fill(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_dotplot(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+point
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Bay"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "none", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1))+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 3)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2.5)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.5) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.5, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+ggplot()+
+#geom_violin(aes(x = biome_Whittaker, y = depth_m, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.25, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+ggplot()+
+geom_violin(aes(x = biome_Whittaker, y = Def1, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+#geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2)+
+labs(x = "Biome",
+y = "Depth, m")+
+ylim(-0.25, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+ggplot()+
+geom_violin(aes(x = biome_Whittaker, y = Def1, group = biome_Whittaker, fill = biome_Whittaker), alpha = 0.4)+
+#geom_point(aes(x = biome_Whittaker, y = depth_m, color = Def1), size = 2)+
+labs(x = "Biome",
+y = "Depth, m")+
+# ylim(-0.25, 0)+
+scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+facet_grid(.~season)+
+theme_er()+
+theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+panel.border = element_rect(color="white",size=2, fill = NA))
+combo_ftc_siteproperties =
+sommos_sites %>%
+# dplyr::select(site, biome_Whittaker, site_name_full, management, fire_management,
+#               longitude.dec_deg, elevation.m, probable_soil_order_via_NRCS) %>%
+rename(site_pos = site) %>%
+left_join(ftc_4_1_5C)
+View(combo_ftc_siteproperties)
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")
+)
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12')
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+combo_ftc_siteproperties %>%
+filter(season != "NA" & Def1 > 0 & depth_m > -0.25) %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12')
+combo_ftc_siteproperties =
+sommos_sites %>%
+# dplyr::select(site, biome_Whittaker, site_name_full, management, fire_management,
+#               longitude.dec_deg, elevation.m, probable_soil_order_via_NRCS) %>%
+rename(site_pos = site) %>%
+left_join(ftc_4_1_5C)
+combo_ftc_siteproperties %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min"))
+combo_ftc_siteproperties %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12')
+combo_ftc_siteproperties %>%
+select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C")
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min"))
+View(combo_ftc_temp)
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+mutate(season = case_when(grepl(c("12", "01", "02"), Temp_ID)~"winter"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+mutate(season = case_when(grepl("12", Temp_ID)~"winter"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(month, sep = "max", into = c("T", "month"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+mutate(month = separate(Temp_ID, sep = "max", into = c("T", "month")))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(Temp_ID, sep = "max", into = c("T", "month"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(Temp_ID, sep = "max", into = c("T", "month")) %>%
+mutate(season = case_when(month = c(12, 1, 2)~ "winter"))
+View(combo_ftc_temp)
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(Temp_ID, sep = c("max", "min", "ave)", into = c("T", "month"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(Temp_ID, sep = c("max", "min", "ave"), into = c("T", "month"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+separate(Temp_ID, sep = "max", into = c("T", "month"),
+Temp_ID, sep = "min", into = c("T", "month"),
+Temp_ID, sep = "ave", into = c("T", "month"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+mutate(Temp_ID = recode(Temp_ID, "01" = "winter"))
+combo_ftc_temp =
+combo_ftc_siteproperties %>%
+dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12',
+'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+tidyr::pivot_longer(
+cols = starts_with("T"),
+names_to = "Temp_ID",
+values_to = "Temp_C") %>%
+mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+grepl("Tave", Temp_ID)~"ave",
+grepl("Tmin", Temp_ID)~"min")) %>%
+mutate(season = case_when(grepl("01", Temp_ID) ~ "winter",
+grepl("12", Temp_ID) ~ "winter",
+grepl("02", Temp_ID)~"winter",
+grepl("03", Temp_ID)~"spring",
+grepl("04", Temp_ID)~ "spring",
+grepl("05", Temp_ID)~ "spring",
+grepl("06", Temp_ID)~"summer",
+grepl("07", Temp_ID)~"summer",
+grepl("08", Temp_ID)~"summer",
+grepl("09", Temp_ID)~"fall",
+grepl("10", Temp_ID)~"fall",
+grepl("11", Temp_ID)~"fall"))
+tempxftc =
+combo_ftc_temp %>%
+left_join(ftc_4_1_5C)
+biomes =
+combo_ftc_siteproperties %>%
+select(site_pos, management, biome_Whittaker, elevation.m, longitude.dec_deg, latitude.dec_deg,
+fire_management, site_name_full, probable_soil_order_via_NRCS, soil_series_parent_material
+)
+metadata =
+combo_ftc_siteproperties %>%
+select(site_pos, management, biome_Whittaker, elevation.m, longitude.dec_deg, latitude.dec_deg,
+fire_management, site_name_full, probable_soil_order_via_NRCS, soil_series_parent_material
+)
+tempxftc =
+combo_ftc_temp %>%
+left_join(ftc_4_1_5C) %>%
+left_join(metadata)
+tempxftc %>%
+ggplot()+
+geom_point(aes(x = Temp_C, y = Def1, color = biome_Whittaker))+
+facet_wrap(.~season)+
+theme_er()
+tempxftc =
+combo_ftc_temp %>%
+left_join(ftc_4_1_5C) %>%
+left_join(metadata)
+tempxftc %>%
+ggplot()+
+geom_point(aes(x = Temp_C, y = Def1, color = biome_Whittaker))+
+facet_wrap(.~season)+
+theme_er()
+View(tempxftc)
+metadata =
+combo_ftc_siteproperties %>%
+select(site_pos, management, biome_Whittaker, elevation.m, longitude.dec_deg, latitude.dec_deg,
+fire_management, site_name_full, probable_soil_order_via_NRCS, soil_series_parent_material
+)
+tempxftc =
+combo_ftc_temp %>%
+left_join(ftc_4_1_5C) %>%
+left_join(metadata)
+tempxftc %>%
+ggplot()+
+geom_point(aes(x = Temp_C, y = Def1, color = biome_Whittaker))+
+facet_wrap(.~season)+
+theme_er()
