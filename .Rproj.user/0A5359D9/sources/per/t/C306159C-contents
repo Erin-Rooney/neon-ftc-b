@@ -4,15 +4,19 @@
 
 #packages
 source("code/0-packages.R")
-library(plotly)
-library(reshape2)
-library(metR)
+# library(plotly)
+# library(reshape2)
+# library(metR)
 library(NatParksPalettes)
 
 
 #load data
 sommos_sites = read.csv("processed/SOMMOS_Site_11-25-19.csv") 
 ftc_4_1_5C = read_rds('processed/final_dat_4hr_1.5mag.RData')
+#sommos_horizon = read.csv('processed/SOMMOS_Horizon.csv')
+sommos_om = read.csv("processed/SOMMOS_horizonation.csv") %>% select(c(site_ID, plot, horizon,
+                                                                    top_depth.cm, bottom_depth.cm, 
+                                                                    thickness.cm))
 
 ftc_4_1_5C %>% 
   ggplot()+
@@ -104,23 +108,37 @@ Tmin =
 
 maxmin_ftc_temps =
   Tmax %>% 
-  left_join(Tmin)
+  left_join(Tmin) 
+
+diff_ftc_temps =
+  Tmax %>% 
+  left_join(Tmin) %>% 
+  group_by(site_pos, season) %>% 
+  dplyr::summarise(temp_diff = round(mean(temp_max - temp_min), 2)) 
+
                    
 metadata =
-  combo_ftc_temps %>% 
-  select(site_pos, management, biome_Whittaker, elevation.m, longitude.dec_deg, latitude.dec_deg,
-         fire_management, site_name_full, probable_soil_order_via_NRCS, soil_series_parent_material
+  combo_ftc_siteproperties %>%
+  select(site_pos, biome_Whittaker, elevation.m, 
+         site_name_full, probable_soil_order_via_NRCS
          )
   
 
-combo_ftc_temps =
+maxmin_metadata_ftc_temps =
   maxmin_ftc_temps %>% 
+  left_join(ftc_4_1_5C) %>% 
+  left_join(metadata) %>% 
+  na.omit()
+
+
+diff_metadata_ftc_temps =
+  diff_ftc_temps %>% 
   left_join(ftc_4_1_5C) %>% 
   left_join(metadata) %>% 
   na.omit()
   
 tempmin_ftcfig =
-  combo_ftc_temps %>% 
+  maxmin_metadata_ftc_temps %>% 
   filter(Def1 > 0) %>% 
   ggplot()+
   geom_point(aes(x = temp_min, y = Def1, color = biome_Whittaker))+
@@ -135,7 +153,7 @@ tempmin_ftcfig =
 ggsave("output/mintemp_ftc.png", plot = tempmin_ftcfig, height = 6, width = 10)
 
 tempmax_ftcfig =
-  combo_ftc_temps %>% 
+  maxmin_metadata_ftc_temps %>% 
   filter(Def1 > 0) %>% 
   ggplot()+
   geom_point(aes(x = temp_max, y = Def1, color = biome_Whittaker))+
@@ -148,16 +166,131 @@ tempmax_ftcfig =
 
 
 ggsave("output/maxtemp_ftc.png", plot = tempmax_ftcfig, height = 6, width = 10)
+
+
+
+diff_ftcfig =
+  diff_metadata_ftc_temps %>% 
+  filter(Def1 > 0) %>% 
+  ggplot()+
+  geom_point(aes(x = temp_diff, y = Def1, color = biome_Whittaker))+
+  labs(x = "Max-Min Temperature difference, C", y = "Freeze-thaw cycles")+
+  #facet_wrap(.~season, scales = "free_y")+
+  scale_color_manual(values = natparks.pals(name = "Yellowstone", 5))+
+  theme_er()+
+  theme(legend.position = "right", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+        panel.border = element_rect(color="white",size=2, fill = NA))
+
+
+ggsave("output/difftemp_ftc.png", plot = diff_ftcfig, height = 6, width = 10)
+
+ftc_top_50 =
+  ftc_4_1_5C %>% 
+  filter(depth_m > -0.5) %>% 
+  rename(plot = core_pos) %>% 
+  group_by(site_pos, plot) %>% 
+  summarise(ftc = max(Def1)) %>% 
+  left_join(diff_metadata_ftc_temps) %>% 
+  dplyr::select(site_pos, plot, season, ftc, temp_diff, biome_Whittaker, elevation.m, site_name_full) %>% 
+  na.omit()
+
+om_thickness =
+  sommos_om %>% 
+  #distinguish organic horizons
+  dplyr::mutate(organic = case_when(grepl("O", horizon)~"organic")) %>% 
+  #filter out sites without any organic horizons
+  filter(organic == organic) %>% 
+  #get the maximum and minimum organic depth within each plot 
+  group_by(site_ID, plot) %>% 
+  dplyr::summarise(max_cm = max(bottom_depth.cm),
+                   min_cm = min(bottom_depth.cm)) %>% 
+  ungroup() %>% 
+  rename(site_pos = site_ID) 
+
+om_mapping =
+  sommos_om %>% 
+  #distinguish organic horizons
+  dplyr::mutate(material = case_when(grepl("O", horizon)~"organic",
+                grepl("A", horizon)~"mineral",
+                grepl("B", horizon)~"mineral",
+                grepl("C", horizon)~"mineral")) %>% 
+  #filter out sites without any organic horizons
+  #filter(organic == organic) %>% 
+  #get the maximum and minimum organic depth within each plot 
+  rename(site_pos = site_ID) %>% 
+  rename(thickness_cm = thickness.cm) %>% 
+  mutate(site_plot = paste0(site_pos, "-", plot)) %>% 
+  left_join(metadata) 
+
+om_mapping %>% 
+  filter(biome_Whittaker == "Boreal forest") %>% 
+  ggplot()+
+  geom_col(aes(y = thickness_cm, x = site_plot, fill = material), group = site_plot, position = 'stack', width = 0.7)+
+  labs(fill = "", color = "",
+       y = "depth, cm",
+       x = "plot")+
+  facet_wrap(biome_Whittaker ~ .)+
+  #scale_fill_manual(values = c("#D6AB7D", "#B3895D", "#B3895D", "#734F38", "#553725", "#482919", "#482919"))+
+  theme_er()+
+  theme(axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9), legend.position = "right")
   
-combo_ftc_pas =
-  combo_ftc_siteproperties %>% 
-  dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12', 
-                'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
-                'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
-  tidyr::pivot_longer(
-    cols = starts_with("T"),
-    names_to = "Temp_ID",
-    values_to = "Temp_C") %>%
-  mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
-                               grepl("Tave", Temp_ID)~"ave",
-                               grepl("Tmin", Temp_ID)~"min"))
+
+
+# omthickness_ftcfig =
+#   om_thickness %>% 
+#   #filter(ftc > 0) %>% 
+#   ggplot()+
+#   geom_point(aes(x = ftc, y = max_cm, color = biome_Whittaker))+
+#   labs(x = "Freeze-thaw cycles", y = "maximum OM thickness (cm)")+
+#   facet_wrap(.~season, scales = "free_y")+
+#   scale_color_manual(values = natparks.pals(name = "Yellowstone", 6))+
+#   theme_er()+
+#   theme(legend.position = "bottom", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+#         panel.border = element_rect(color="white",size=2, fill = NA))
+
+# ggsave("output/OMthickness_ftc.png", plot = omthickness_ftcfig, height = 6, width = 10)
+
+
+om_airtemp_ftc =
+  ftc_top_50 %>% 
+  left_join(om_thickness) 
+
+omthickness_boreal_fig =
+  om_airtemp_ftc %>% 
+  #filter(biome_Whittaker == "Boreal forest") %>% 
+  ggplot()+
+  geom_col(aes(x = site_name_full, y = max_cm, fill = ftc))+
+  labs(y = "OM thickness (cm)")+
+  facet_wrap(biome_Whittaker ~ .)+
+  scale_color_gradientn(colors = pnw_palette(name = "Sailboat"))+
+  theme_er()+
+  theme(legend.position = "right", axis.text.x = element_text (vjust = 0.5, hjust=1, angle = 90, size = 9),
+        panel.border = element_rect(color="white",size=2, fill = NA))
+
+ggsave("output/Oomthickness_boreal.png", plot = omthickness_boreal_fig, height = 6, width = 10)
+
+
+
+
+
+
+
+# 
+# 
+# 
+#   
+# combo_ftc_pas =
+#   combo_ftc_siteproperties %>% 
+#   dplyr::select(site_pos, 'Tmax01', 'Tmax02', 'Tmax03', 'Tmax04', 'Tmax05', 'Tmax06', 'Tmax07', 'Tmax08', 'Tmax09', 'Tmax10', 'Tmax11', 'Tmax12', 
+#                 'Tmin01', 'Tmin02', 'Tmin03', 'Tmin04', 'Tmin05', 'Tmin06', 'Tmin07', 'Tmin08', 'Tmin09', 'Tmin10', 'Tmin11', 'Tmin12',
+#                 'Tave01', 'Tave02', 'Tave03', 'Tave04', 'Tave05', 'Tave06', 'Tave07', 'Tave08', 'Tave09', 'Tave10', 'Tave11', 'Tave12') %>%
+#   tidyr::pivot_longer(
+#     cols = starts_with("T"),
+#     names_to = "Temp_ID",
+#     values_to = "Temp_C") %>%
+#   mutate(Temp_type = case_when(grepl("Tmax", Temp_ID)~"max",
+#                                grepl("Tave", Temp_ID)~"ave",
+#                                grepl("Tmin", Temp_ID)~"min"))
+# 
+# 
+
