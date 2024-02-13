@@ -1,3 +1,5 @@
+<a href="https://zenodo.org/doi/10.5281/zenodo.10654856"><img src="https://zenodo.org/badge/297758371.svg" alt="DOI"></a>
+
 # NEON-FTC
 Data and code for continental-scale assessment of freeze-thaw cycles across 40 National Ecological Observatory Network sites
 
