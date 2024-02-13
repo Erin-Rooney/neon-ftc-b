@@ -1,0 +1,41 @@
+site,NEON_site,site_name_full,biome_Whittaker,latitude.dec_deg,longitude.dec_deg,probable_soil_order_via_NRCS,MAT,MWMT,MCMT,MAP,PAS,MAP_Eref
+ABBY,ABBY,Abby Road,Temperate rain forest,45.76243,-122.33033,Inceptisol,9.4,17.2,1.6,2657,158,1859
+BARR,BARR,Barrow,Tundra,71.28257842,-156.6187438,Gelisol,-12.5,4.2,-25.2,183,134,72
+BART,BART,Bartlett Experimental forest,Temperate seasonal forest,44.06388,-71.28731,Spodosol,5.2,18.7,-9.2,1262,362,545
+BLAN,BLAN,Blandy Experimental Farm,Woodland/shrubland,39.06026,-78.07164,Alfisol,12.2,24,-0.4,954,23,-112
+BONA,BONA,Caribou Poker,Boreal forest,65.15505361,-147.4909984,Inceptisol,-1.8,15.8,-19.3,415,138,15
+CLBJ,CLBJ,LBJ/Caddo,Woodland/shrubland,33.40123,-97.57,Alfisol,17.7,28.9,5.6,870,1,-524
+CPER,CPER,CPER,Temperate grassland/desert,40.815534,-104.745602,Mollisol,8.2,21.5,-3.5,348,28,-626
+DCFS,DCFS,Dakota-Coteau,Woodland/shrubland,47.161647,-99.106556,Mollisol,4.3,21.1,-14.4,427,57,-303
+DEJU,DEJU,Delta Junction,Boreal forest,63.88112,-145.75136,Inceptisol,-3.1,14.9,-21.4,443,117,69
+DELA,DELA,Dead Lake,Temperate seasonal forest,32.54172,-87.80389,Ultisol,17.3,26.9,6.3,1403,2,25
+DSNY,DSNY,Disney,Tropical seasonal forest/savanna,28.12504,-81.4362,Spodosol,22.2,27.8,15.5,1282,0,-269
+GRSM,GRSM,Great Smokey Mtn Nationa Park,Temperate seasonal forest,35.68896,-83.50195,Inceptisol,12.1,21.6,1.4,1471,19,307
+HARV,HARV,Harvard Forest,Temperate seasonal forest,42.5369,-72.17266,Inceptisol,7.2,20,-6.4,1113,211,350
+HEAL,HEAL,Healy,Boreal forest,63.87569,-149.21334,Gelisol,-2.4,13.5,-15.9,460,176,108
+JORN,JORN,Jornada,Temperate grassland/desert,32.59068,-106.84254,Aridisol,15.3,26.4,4.4,266,2,-1270
+KONA,KONA,Konza Agriculture,Woodland/shrubland,39.11044,-96.61295,Mollisol,12.5,26.5,-2.6,854,18,-181
+KONZ,KONZ,Konza Core,Woodland/shrubland,39.10077,-96.56309,Mollisol,12.3,26.2,-2.9,863,20,-157
+LENO,LENO,Lenoir Landing,Temperate seasonal forest,31.85388,-88.16122,Inceptisol,18,27,7.6,1421,1,-41
+MLBS,MLBS,Mountain Lake,Temperate seasonal forest,37.37828,-80.52484,Entisol,8.9,19.4,-2.6,1174,72,309
+MOAB,MOAB,Moab,Temperate grassland/desert,38.24833,-109.38827,NA,9.4,22.9,-4.2,301,32,-755
+NGPR,NOGP,Northern Great Plains Research Laboratory,Woodland/shrubland,46.76972,-100.91535,Mollisol,5,21.4,-13,406,53,-341
+NIWO,NIWO,NIWOT,Boreal forest,40.05425,-105.58237,Mollisol,0.1,11.4,-9.3,866,529,339
+OAES,OAES,Klemme (OAES),Woodland/shrubland,35.41059,-99.05879,Inceptisol,15.7,28.3,2.4,699,3,-642
+ONAQ,ONAQ,Onaqui-Ault Steppe,Temperate grassland/desert,40.17759,-112.45244,Aridisol,8.8,22.9,-3.4,278,38,-727
+ORNL,ORNL,Oak Ridge,Temperate seasonal forest,35.96412,-84.2826,Ultisol,13.9,24.4,2,1384,14,190
+OSBS,OSBS,Ordway-Swisher,Tropical seasonal forest/savanna,29.68927,-81.99343,Entisol,20.5,27.2,12.3,1368,0,-192
+RMNP,RMNP,Rocky Mtn National Park,Temperate seasonal forest,40.27591,-105.54592,NA,2.4,13.7,-7.1,704,328,55
+SCBI,SCBI,Smithsonian Conservation Biology Institute,Temperate seasonal forest,38.89292,-78.1395,Alfisol,12,23.4,-0.2,1015,23,-29
+SERC,SERC,Smithsonian Environmental Research Center,Temperate seasonal forest,38.89008,-76.56001,Ultisol,13.5,25.3,1.1,1076,15,34
+SJER,SJER,San Juaquin,Temperate grassland/desert,37.10878,-119.73228,Alfisol,16.1,26.6,6.9,469,3,-984
+SOAP,SOAP,Soaproot Saddle,Woodland/shrubland,37.03337,-119.26219,Alfisol,12.7,22.6,5.3,767,15,-408
+SRER,SRER,Santa Rita,Subtropical desert,31.91068,-110.83549,Entisol,18.5,28.3,9.4,393,1,-1221
+STEI,STEI,Steigerwalt,Temperate seasonal forest,45.508942,-89.586365,Spodosol,4.7,19.8,-12.1,806,150,104
+STER,STER,Sterling,Woodland/shrubland,40.461903,-103.029297,Mollisol,9.1,23,-3.5,430,22,-561
+TALL,TALL,Talladega,Temperate seasonal forest,32.95046,-87.39327,Ultisol,16.9,26.5,5.8,1431,3,70
+TOOL,TOOL,Toolik,Tundra,68.66109,-149.37047,NA,-10.1,10.9,-26.3,365,177,162
+TREE,TREE,Treehaven,Temperate seasonal forest,45.493725,-89.585718,Spodosol,4.7,19.8,-12.1,807,149,105
+UNDE,UNDE,UNDERC,Temperate seasonal forest,46.23388,-89.53725,Spodosol,4.3,19.3,-12.2,815,173,130
+WOOD,WOOD,Woodworth,Woodland/shrubland,47.128228,-99.241356,Mollisol,4.3,21,-14.3,420,50,-312
+WREF,WREF,Wind River,Temperate rain forest,45.820488,-121.951912,Andisol,8.9,17.9,0.2,2468,255,1630
